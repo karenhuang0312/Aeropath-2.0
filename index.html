@@ -1,15 +1,11 @@
-<index html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aeropath</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Georgia', serif;
       background-color: #F5F0DC;
@@ -50,14 +46,8 @@
       text-align: center;
       padding: 80px 20px;
     }
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+    .hero h1 { font-size: 42px; margin-bottom: 20px; }
+    .hero p { font-size: 18px; margin-bottom: 30px; }
     .btn.gold {
       background-color: #D4B463;
       color: #091930;
@@ -81,9 +71,7 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
-    .search-section input {
-      width: 160px;
-    }
+    .search-section input { width: 160px; }
     .info-section {
       background-color: #091930;
       padding: 60px 20px;
@@ -148,143 +136,209 @@
       cursor: pointer;
     }
     #translate-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
       background-color: #D4B463;
       color: #091930;
       border: none;
-      padding: 6px 12px;
-      margin-left: 20px;
-      border-radius: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
       font-weight: bold;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 999;
+    }
+    .chatbox-header {
+      background-color: #091930;
+      color: #D4B463;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .chatbox-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    .chatbox-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chatbox-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-right: 1px solid #ccc;
+      outline: none;
+    }
+    .chatbox-input button {
+      padding: 10px;
+      border: none;
+      background-color: #D4B463;
+      color: #091930;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">AEROPATH</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-    </nav>
-    <div class="social">
-      <a href="mailto:aeropath67@gmail.com">Gmail</a>
-      <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
-    </div>
-    <div class="login-btn">
-      <button onclick="openLogin()">Login</button>
-    </div>
-    <button id="translate-btn">Translate</button>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Explore the World<br>with Us</h1>
-    <p>Discover new destinations, book flights, and enjoy the journey with Aeropath.</p>
-    <a href="#" class="btn gold">BOOK NOW</a>
-  </section>
-
-  <!-- Flight Search -->
-  <section class="search-section">
-    <h1>Search Flights</h1>
-    <p>Find the best flights from top travel providers</p>
-    <form id="flightSearchForm">
-      <input type="text" id="from" placeholder="From (e.g. JFK)" required />
-      <input type="text" id="to" placeholder="To (e.g. LAX)" required />
-      <input type="date" id="departure" required />
-      <button type="submit" class="btn gold">Search Flights</button>
-    </form>
-  </section>
-
-  <!-- Info Boxes -->
-  <section class="info-section">
-    <div class="info-box">
-      <span class="badge">Travel Planning</span>
-      <h2>Our Services</h2>
-      <p>We help you design custom itineraries tailored to your interests and budget.</p>
-    </div>
-    <div class="info-box">
-      <span class="badge">Get Started</span>
-      <h2>Plan Your Trip</h2>
-      <p>Start your journey with confidence and ease.</p>
-    </div>
-    <div class="info-box">
-      <span class="badge">Special Offer</span>
-      <h2>Save 20%<br>on all flights!</h2>
-      <p>We secure the best deals on flights and accommodations globally.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div style="margin-bottom: 10px;">
-      <a href="mailto:aeropath67@gmail.com">Gmail</a>
-      <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Careers</a>
-    </div>
-    <div>© 2025 Aeropath · All Rights Reserved</div>
-  </footer>
-
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeLogin()">&times;</span>
-      <h2>Login to Aeropath</h2>
-      <input type="text" placeholder="Username" required />
-      <input type="password" placeholder="Password" required />
-      <button onclick="alert('Logged in!')">Login</button>
-    </div>
+<header class="navbar">
+  <div class="logo">AEROPATH</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="social">
+    <a href="mailto:aeropath67@gmail.com">Gmail</a>
+    <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
+    <a href="tel:5513272067">Call Us</a>
   </div>
+  <div class="login-btn">
+    <button onclick="openLogin()">Login</button>
+  </div>
+</header>
 
-  <!-- Chatbot & Language JS -->
-  <script>
-    // Modal logic
-    function openLogin() {
-      document.getElementById("loginModal").style.display = "block";
-    }
-    function closeLogin() {
-      document.getElementById("loginModal").style.display = "none";
-    }
-    window.onclick = function(e) {
-      if (e.target === document.getElementById("loginModal")) closeLogin();
-    };
+<!-- Translate Button -->
+<button id="translate-btn" onclick="translatePage()">Translate</button>
 
-    // Flight Search
-    document.getElementById("flightSearchForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const from = document.getElementById("from").value.toUpperCase();
-      const to = document.getElementById("to").value.toUpperCase();
-      const departure = document.getElementById("departure").value;
-      const urls = [
-        `https://www.expedia.com/Flights-Search?trip=oneway&leg1=from:${from},to:${to},departure:${departure}TANYT&passengers=adults:1&options=cabinclass:economy&mode=search`,
-        `https://www.skyscanner.com/transport/flights/${from}/${to}/${departure.replace(/-/g, '')}/?adults=1&cabinclass=economy`,
-        `https://www.momondo.com/flights/${from}/${to}/${departure}`,
-        `https://www.delta.com/flight-search/book-a-flight?fromCity=${from}&toCity=${to}&departureDate=${departure}`,
-      ];
-      urls.forEach(url => window.open(url, '_blank'));
+<!-- Hero -->
+<section class="hero">
+  <h1>Explore the World<br>with Us</h1>
+  <p>Discover new destinations, book flights, and enjoy the journey with Aeropath.</p>
+  <a href="#" class="btn gold">BOOK NOW</a>
+</section>
+
+<!-- Search Flights -->
+<section class="search-section">
+  <h1>Search Flights</h1>
+  <p>Find the best flights from top travel providers</p>
+  <form id="flightSearchForm">
+    <input type="text" id="from" placeholder="From (e.g. JFK)" required />
+    <input type="text" id="to" placeholder="To (e.g. LAX)" required />
+    <input type="date" id="departure" required />
+    <button type="submit" class="btn gold">Search Flights</button>
+  </form>
+</section>
+
+<!-- Services Info -->
+<section class="info-section">
+  <div class="info-box"><span class="badge">Travel Planning</span><h2>Our Services</h2><p>We help you design custom itineraries tailored to your interests and budget.</p></div>
+  <div class="info-box"><span class="badge">Get Started</span><h2>Plan Your Trip</h2><p>Start your journey with confidence and ease.</p></div>
+  <div class="info-box"><span class="badge">Special Offer</span><h2>Save 20%<br>on all flights!</h2><p>We secure the best deals on flights and accommodations globally.</p></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div style="margin-bottom: 10px;">
+    <a href="mailto:aeropath67@gmail.com">Gmail</a>
+    <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
+    <a href="tel:5513272067">Call Us</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Careers</a>
+  </div>
+  <div>© 2025 Aeropath · All Rights Reserved</div>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <h2>Login to Aeropath</h2>
+    <input type="text" placeholder="Username" required />
+    <input type="password" placeholder="Password" required />
+    <button onclick="alert('Logged in!')">Login</button>
+  </div>
+</div>
+
+<!-- Chatbox -->
+<div class="chatbox" id="chatbox">
+  <div class="chatbox-header">AI Chat Assistant</div>
+  <div class="chatbox-messages" id="chat-messages"></div>
+  <div class="chatbox-input">
+    <input type="text" id="chat-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  function openLogin() {
+    document.getElementById("loginModal").style.display = "block";
+  }
+  function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == document.getElementById("loginModal")) closeLogin();
+  }
+
+  document.getElementById("flightSearchForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const from = document.getElementById("from").value.toUpperCase();
+    const to = document.getElementById("to").value.toUpperCase();
+    const departure = document.getElementById("departure").value;
+    const urls = [
+      `https://www.expedia.com/Flights-Search?trip=oneway&leg1=from:${from},to:${to},departure:${departure}TANYT&passengers=adults:1&options=cabinclass:economy&mode=search`,
+      `https://www.skyscanner.com/transport/flights/${from}/${to}/${departure.replace(/-/g, '')}/?adults=1&cabinclass=economy`,
+      `https://www.momondo.com/flights/${from}/${to}/${departure}`,
+      `https://www.delta.com/flight-search/book-a-flight?fromCity=${from}&toCity=${to}&departureDate=${departure}`,
+    ];
+    urls.forEach(url => window.open(url, '_blank'));
+  });
+
+  const messages = document.getElementById("chat-messages");
+  const input = document.getElementById("chat-input");
+  function sendMessage() {
+    const userMessage = input.value.trim();
+    if (!userMessage) return;
+    addMessage("You", userMessage);
+    input.value = "";
+    setTimeout(() => {
+      const reply = generateReply(userMessage);
+      addMessage("AI", reply);
+    }, 600);
+  }
+  function addMessage(sender, text) {
+    const msg = document.createElement("div");
+    msg.textContent = sender + ": " + text;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  function generateReply(userText) {
+    const text = userText.toLowerCase();
+    if (text.includes("hi") || text.includes("hello")) return "Hi there! How can I help you today?";
+    if (text.includes("help")) return "I'm here to help with flight bookings or questions!";
+    if (text.includes("book")) return "To book a flight, use the form above or ask me directly!";
+    return "Thanks for reaching out! We'll get back to you shortly.";
+  }
+
+  function translatePage() {
+    const elements = document.body.querySelectorAll("*:not(script):not(style)");
+    elements.forEach(el => {
+      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+        el.textContent = "🌐 " + el.textContent;
+      }
     });
-
-    // Translate (Simple Demo)
-    document.getElementById("translate-btn").addEventListener("click", () => {
-      alert("Translation feature coming soon! 🌐");
-    });
-
-    // Placeholder Chatbot
-    const chatbot = document.createElement('div');
-    chatbot.style.position = 'fixed';
-    chatbot.style.bottom = '20px';
-    chatbot.style.right = '20px';
-    chatbot.style.background = '#fff';
-    chatbot.style.border = '1px solid #ccc';
-    chatbot.style.padding = '10px';
-    chatbot.style.borderRadius = '10px';
-    chatbot.innerText = "💬 Need help? Chat with us soon!";
-    document.body.appendChild(chatbot);
-  </script>
+  }
+</script>
 
 </body>
 </html>
