@@ -1,4 +1,4 @@
-<index html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,14 +10,12 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Georgia', serif;
       background-color: #F5F0DC;
       color: #091930;
       line-height: 1.6;
     }
-
     .navbar {
       background-color: #091930;
       color: #D4B463;
@@ -25,28 +23,19 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 60px;
-      position: relative;
+      flex-wrap: wrap;
     }
-
     .logo {
       font-size: 32px;
       font-weight: bold;
       color: #D4B463;
-      letter-spacing: 1px;
     }
-
-    .navbar nav a {
+    .navbar nav a, .navbar .social a {
       color: #FFFFFF;
-      margin-left: 30px;
+      margin-left: 20px;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 14px;
     }
-
-    .login-btn {
-      position: absolute;
-      right: 60px;
-    }
-
     .login-btn button {
       background-color: #D4B463;
       color: #091930;
@@ -57,25 +46,18 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     .hero {
-      background-color: #F5F0DC;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 80px 20px;
     }
-
     .hero h1 {
       font-size: 42px;
-      color: #091930;
       margin-bottom: 20px;
     }
-
     .hero p {
       font-size: 18px;
       margin-bottom: 30px;
-      color: #091930;
     }
-
     .btn.gold {
       background-color: #D4B463;
       color: #091930;
@@ -87,36 +69,21 @@
       border: none;
       cursor: pointer;
     }
-
     .search-section {
       background-color: #FFF6E5;
       text-align: center;
       padding: 60px 20px;
     }
-
-    .search-section h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .search-section p {
-      font-size: 16px;
-      margin-bottom: 30px;
-    }
-
-    .search-section input,
-    .search-section button {
+    .search-section input, .search-section button {
       padding: 10px;
       margin: 8px;
       font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
-
     .search-section input {
       width: 160px;
     }
-
     .info-section {
       background-color: #091930;
       padding: 60px 20px;
@@ -125,21 +92,14 @@
       justify-content: center;
       gap: 30px;
     }
-
     .info-box {
       width: 280px;
       border-radius: 12px;
       padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    }
-
-    .ivory,
-    .coral {
-      background-color: #FFFFFF;
+      background-color: #fff;
       color: #091930;
     }
-
     .badge {
       display: inline-block;
       font-size: 12px;
@@ -147,32 +107,8 @@
       padding: 6px 14px;
       border-radius: 999px;
       margin-bottom: 15px;
-    }
-
-    .gold {
       background-color: #D4B463;
-      color: #091930;
     }
-
-    .green {
-      background-color: #1D5C45;
-      color: #FFFFFF;
-    }
-
-    .coral-text {
-      background-color: #F3B9A8;
-      color: #091930;
-    }
-
-    .info-box h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .info-box p {
-      font-size: 14px;
-    }
-
     footer {
       background-color: #091930;
       color: #FFFFFF;
@@ -180,101 +116,51 @@
       padding: 40px 20px;
       font-size: 14px;
     }
-
     footer a {
       color: #D4B463;
       margin: 0 15px;
       text-decoration: none;
     }
-
-    /* Login Modal */
     .modal {
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       background-color: rgba(0,0,0,0.5);
     }
-
     .modal-content {
       background-color: #fff;
       margin: 10% auto;
       padding: 30px;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 400px;
       border-radius: 10px;
+      max-width: 400px;
     }
-
-    .modal-content h2 {
-      margin-bottom: 20px;
-      text-align: center;
-      color: #091930;
-    }
-
-    .modal-content input {
+    .modal-content input, .modal-content button {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
       border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
     }
-
-    .modal-content button {
-      width: 100%;
-      padding: 12px;
+    .close {
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    #translate-btn {
       background-color: #D4B463;
       color: #091930;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      padding: 6px 12px;
+      margin-left: 20px;
+      border-radius: 6px;
       font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .info-section {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .navbar {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
-
-      .navbar nav a {
-        margin: 10px;
-      }
-
-      .search-section input {
-        width: 90%;
-      }
-
-      .login-btn {
-        position: static;
-        margin-top: 10px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">AEROPATH</div>
     <nav>
@@ -283,15 +169,20 @@
       <a href="#">Services</a>
       <a href="#">Contact</a>
     </nav>
+    <div class="social">
+      <a href="mailto:aeropath67@gmail.com">Gmail</a>
+      <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
+    </div>
     <div class="login-btn">
       <button onclick="openLogin()">Login</button>
     </div>
+    <button id="translate-btn">Translate</button>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Explore the World<br>with Us</h1>
-    <p>Discover new destinations, book flights, and<br>enjoy the journey with Aeropath.</p>
+    <p>Discover new destinations, book flights, and enjoy the journey with Aeropath.</p>
     <a href="#" class="btn gold">BOOK NOW</a>
   </section>
 
@@ -300,27 +191,27 @@
     <h1>Search Flights</h1>
     <p>Find the best flights from top travel providers</p>
     <form id="flightSearchForm">
-      <input type="text" id="from" placeholder="From (e.g. JFK)" required>
-      <input type="text" id="to" placeholder="To (e.g. LAX)" required>
-      <input type="date" id="departure" required>
+      <input type="text" id="from" placeholder="From (e.g. JFK)" required />
+      <input type="text" id="to" placeholder="To (e.g. LAX)" required />
+      <input type="date" id="departure" required />
       <button type="submit" class="btn gold">Search Flights</button>
     </form>
   </section>
 
-  <!-- Info Cards -->
+  <!-- Info Boxes -->
   <section class="info-section">
-    <div class="info-box ivory">
-      <span class="badge gold">Travel Planning</span>
+    <div class="info-box">
+      <span class="badge">Travel Planning</span>
       <h2>Our Services</h2>
       <p>We help you design custom itineraries tailored to your interests and budget.</p>
     </div>
-    <div class="info-box ivory">
-      <span class="badge green">GET STARTED</span>
+    <div class="info-box">
+      <span class="badge">Get Started</span>
       <h2>Plan Your Trip</h2>
       <p>Start your journey with confidence and ease.</p>
     </div>
-    <div class="info-box coral">
-      <span class="badge coral-text">Special Offer</span>
+    <div class="info-box">
+      <span class="badge">Special Offer</span>
       <h2>Save 20%<br>on all flights!</h2>
       <p>We secure the best deals on flights and accommodations globally.</p>
     </div>
@@ -329,6 +220,8 @@
   <!-- Footer -->
   <footer>
     <div style="margin-bottom: 10px;">
+      <a href="mailto:aeropath67@gmail.com">Gmail</a>
+      <a href="https://www.tiktok.com/@aeropath_" target="_blank">TikTok</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
       <a href="#">Careers</a>
@@ -341,48 +234,56 @@
     <div class="modal-content">
       <span class="close" onclick="closeLogin()">&times;</span>
       <h2>Login to Aeropath</h2>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
+      <input type="text" placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
       <button onclick="alert('Logged in!')">Login</button>
     </div>
   </div>
 
-  <!-- JS -->
+  <!-- Chatbot & Language JS -->
   <script>
+    // Modal logic
     function openLogin() {
       document.getElementById("loginModal").style.display = "block";
     }
-
     function closeLogin() {
       document.getElementById("loginModal").style.display = "none";
     }
+    window.onclick = function(e) {
+      if (e.target === document.getElementById("loginModal")) closeLogin();
+    };
 
-    window.onclick = function(event) {
-      const modal = document.getElementById("loginModal");
-      if (event.target === modal) {
-        closeLogin();
-      }
-    }
-
-    document.getElementById("flightSearchForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const from = document.getElementById("from").value.trim().toUpperCase();
-      const to = document.getElementById("to").value.trim().toUpperCase();
+    // Flight Search
+    document.getElementById("flightSearchForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const from = document.getElementById("from").value.toUpperCase();
+      const to = document.getElementById("to").value.toUpperCase();
       const departure = document.getElementById("departure").value;
-
       const urls = [
         `https://www.expedia.com/Flights-Search?trip=oneway&leg1=from:${from},to:${to},departure:${departure}TANYT&passengers=adults:1&options=cabinclass:economy&mode=search`,
         `https://www.skyscanner.com/transport/flights/${from}/${to}/${departure.replace(/-/g, '')}/?adults=1&cabinclass=economy`,
         `https://www.momondo.com/flights/${from}/${to}/${departure}`,
         `https://www.delta.com/flight-search/book-a-flight?fromCity=${from}&toCity=${to}&departureDate=${departure}`,
-        `https://www.southwest.com/air/booking/select.html?originationAirportCode=${from}&destinationAirportCode=${to}&departureDate=${departure}`,
-        `https://www.aa.com/booking/find-flights?tripType=oneway&originAirport=${from}&destinationAirport=${to}&departDate=${departure}`,
-        `https://www.flyfrontier.com/booking/results?from=${from}&to=${to}&departureDate=${departure}`
       ];
-
       urls.forEach(url => window.open(url, '_blank'));
     });
+
+    // Translate (Simple Demo)
+    document.getElementById("translate-btn").addEventListener("click", () => {
+      alert("Translation feature coming soon! 🌐");
+    });
+
+    // Placeholder Chatbot
+    const chatbot = document.createElement('div');
+    chatbot.style.position = 'fixed';
+    chatbot.style.bottom = '20px';
+    chatbot.style.right = '20px';
+    chatbot.style.background = '#fff';
+    chatbot.style.border = '1px solid #ccc';
+    chatbot.style.padding = '10px';
+    chatbot.style.borderRadius = '10px';
+    chatbot.innerText = "💬 Need help? Chat with us soon!";
+    document.body.appendChild(chatbot);
   </script>
 
 </body>
